@@ -16,8 +16,8 @@ echo "Do you want to delete garbage files?"
 read -r INPUT
 
 if [[ ${INPUT} != y ]] && [[ ${INPUT} != Y ]] && [[ ${INPUT} != yes ]]; then
-    echo "Aborting operation"
-    exit 0
+  echo "Aborting operation"
+  exit 0
 fi
 
 echo "Which folder do you want to check for garbage files?"
@@ -43,7 +43,7 @@ fi
 echo "Which extension these files have? (e.g. .tmp)"
 read -r type
 
-readarray ARRAY_OF_FOUND_FILES < <(find "${DIRECTORY_INPUT}" -mtime +"${DAYS_FOR_DELETION}" -name '*.'"${type}" )
+readarray ARRAY_OF_FOUND_FILES < <(find "${DIRECTORY_INPUT}" -mtime +"${DAYS_FOR_DELETION}" -name '*.'"${type}")
 
 if [[ "${#ARRAY_OF_FOUND_FILES[@]}" -eq 0 ]]; then
   echo "No files have been found in ${DIRECTORY_INPUT} older than ${DAYS_FOR_DELETION} of type ${type}"
